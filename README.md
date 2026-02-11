@@ -1,16 +1,36 @@
-# React + Vite
+## AI利用について（AI_USAGE）
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### 使用したAI
 
-Currently, two official plugins are available:
+- ChatGPT
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 利用目的
 
-## React Compiler
+- Reactアプリ実装中のエラー解決
+- OpenWeatherMap API連携方法の確認
+- UI改善アイデアの検討
+- Vercelへのデプロイ手順の確認
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 代表的なプロンプト
 
-## Expanding the ESLint configuration
+**① 背景の動的変更に関する相談**
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+> 「OpenWeatherMapの weather.main（Clear / Rain など）や気温に応じて、Reactで背景を変更する方法を教えてください。」
+
+**② 気温ベースのUI表現について**
+
+> 「取得した気温データをもとに、Hot / Warm / Cool / Cold のようなクラスを付与してスタイルを切り替える実装例を知りたい。」
+
+**③ Vercelデプロイ手順の確認**
+
+> 「React（Vite）プロジェクトをGitHub経由でVercelにデプロイする具体的な流れを教えてください。」
+
+**④ JSXエラー解決**
+
+> 「Parsing error / Unexpected token が出た際の原因と修正方法を確認したい。」
+
+### 活用時に意識した点
+
+- 生成されたコードをそのまま使用せず、内容を理解して調整しました。
+- エラー原因の特定や実装方針の確認に活用しました。
+- UIや演出は自分で選択・調整しています。
