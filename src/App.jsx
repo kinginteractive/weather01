@@ -5,10 +5,19 @@ export default function App() {
 
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState(null);
-  const weatherMain = weather?.weather?.[0]?.main;
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  
+
+  const weatherMain = weather?.weather?.[0]?.main;
+  const temp = weather?.main?.temp;
+
+  let tempClass = "";
+  if (typeof temp === "number") {
+    if (temp >= 30) tempClass = "Hot";
+    else if (temp >= 20) tempClass = "Warm";
+    else if (temp >= 10) tempClass = "Cool";
+    else tempClass = "Cold";
+  }
 
   async function handleSearch() {
     const trimmed = city.trim();
@@ -30,7 +39,7 @@ export default function App() {
       url.searchParams.set("q", trimmed);
       url.searchParams.set("appid", apiKey);
       url.searchParams.set("lang", "ja");
-      url.searchParams.set("units", "metric"); // 섭씨
+      url.searchParams.set("units", "metric");
 
       const res = await fetch(url);
       const data = await res.json();
@@ -48,7 +57,7 @@ export default function App() {
   }
 
   return (
-    <div className={`app ${weatherMain}`}>
+    <div className={`app ${weatherMain ?? ""} ${tempClass}`}>
       <h1>天気アプリ</h1>
 
       <div className="searchBox">
@@ -70,10 +79,12 @@ export default function App() {
           <h2>
             {weather.name}（{weather.sys?.country}）
           </h2>
+
           <img
-          src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
-          alt="weather icon"
+            src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+            alt="weather icon"
           />
+
           <p>{weather.weather?.[0]?.description}</p>
           <p>気温：{Math.round(weather.main?.temp)}°C</p>
           <p>湿度：{weather.main?.humidity}%</p>

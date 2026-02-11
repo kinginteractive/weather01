@@ -69,3 +69,27 @@ button {
 .Thunderstorm {
   background: linear-gradient(to bottom, #232526, #414345);
 }
+
+.Drizzle {
+  background: linear-gradient(to bottom, #89f7fe, #66a6ff);
+}
+
+.Mist, .Fog, .Haze {
+  background: linear-gradient(to bottom, #bdc3c7, #2c3e50);
+}
+
+.Hot {
+  background: linear-gradient(to bottom, #ff512f, #dd2476);
+}
+
+.Warm {
+  background: linear-gradient(to bottom, #f09819, #ffdd00);
+}
+
+.Cool {
+  background: linear-gradient(to bottom, #56ccf2, #2f80ed);
+}
+
+.Cold {
+  background: linear-gradient(to bottom, #83a4d4, #b6fbff);
+}
