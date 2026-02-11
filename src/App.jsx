@@ -5,8 +5,10 @@ export default function App() {
 
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState(null);
+  const weatherMain = weather?.weather?.[0]?.main;
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  
 
   async function handleSearch() {
     const trimmed = city.trim();
@@ -46,7 +48,7 @@ export default function App() {
   }
 
   return (
-    <div className="app">
+    <div className={`app ${weatherMain}`}>
       <h1>天気アプリ</h1>
 
       <div className="searchBox">
@@ -68,6 +70,10 @@ export default function App() {
           <h2>
             {weather.name}（{weather.sys?.country}）
           </h2>
+          <img
+          src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+          alt="weather icon"
+          />
           <p>{weather.weather?.[0]?.description}</p>
           <p>気温：{Math.round(weather.main?.temp)}°C</p>
           <p>湿度：{weather.main?.humidity}%</p>
